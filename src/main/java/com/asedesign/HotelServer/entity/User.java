@@ -1,5 +1,6 @@
 package com.asedesign.HotelServer.entity;
 
+import com.asedesign.HotelServer.dto.UserDTO;
 import com.asedesign.HotelServer.enums.UserRole;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -53,5 +54,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public UserDTO getUserDTO(){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(id);
+        userDTO.setName(name);
+        userDTO.setEmail(email);
+        userDTO.setUserRole(userRole);
+
+        return userDTO;
     }
 }
